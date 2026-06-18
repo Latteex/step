@@ -7,25 +7,10 @@
  * - Контакты
  */
 
-const footerSections = {
-  sections: [
-    { label: "Главная", href: "#" },
-    { label: "Информация", href: "#information" },
-    { label: "Структура", href: "#structure" },
-    { label: "Календарный план", href: "#calendar" },
-    { label: "Команда проекта", href: "#team" },
-  ],
-  pages: [
-    { label: "Статьи", href: "/articles" },
-    { label: "Угрозы", href: "/threats" },
-    { label: "Проблемы", href: "/problems" },
-    { label: "Как помочь?", href: "/help" },
-  ],
-  documents: [
-    { label: "Политика конфиденциальности", href: "/privacy-policy" },
-    { label: "Политика обработки персональных данных", href: "/personal-data-policy" },
-  ],
-};
+import { NAV_LINKS, FOOTER_PAGES, FOOTER_DOCUMENTS, CONTACTS, IMAGES, FONTS } from "@/const";
+
+// Фильтруем только якорные ссылки для секции "Разделы"
+const anchorLinks = NAV_LINKS.filter(link => link.type === "anchor");
 
 export default function Footer() {
   const handleScroll = (href: string) => {
@@ -45,20 +30,20 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp"
+                src={IMAGES.logo}
                 alt="Логотип"
                 className="w-10 h-10 object-contain"
               />
               <div>
                 <div
                   className="font-bold text-lg leading-none"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  style={{ fontFamily: FONTS.headings }}
                 >
                   Степной хранитель
                 </div>
                 <div
                   className="text-xs text-white/50 tracking-widest uppercase"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  style={{ fontFamily: FONTS.body }}
                 >
                   Защита манула
                 </div>
@@ -66,7 +51,7 @@ export default function Footer() {
             </div>
             <p
               className="text-white/60 text-sm leading-relaxed"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              style={{ fontFamily: FONTS.body }}
             >
               Информационно-просветительская платформа о мануле. Инициатива студентов 
               Финансового университета при Правительстве РФ.
@@ -77,31 +62,20 @@ export default function Footer() {
           <div>
             <h3
               className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              style={{ fontFamily: FONTS.body }}
             >
               Разделы
             </h3>
             <div className="space-y-2">
-              {footerSections.sections.map((link) => (
-                link.href.startsWith("#") ? (
-                  <button
-                    key={link.href}
-                    onClick={() => handleScroll(link.href)}
-                    className="block text-left text-sm text-white/60 hover:text-white transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}
-                  >
-                    {link.label}
-                  </button>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="block text-sm text-white/60 hover:text-white transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}
-                  >
-                    {link.label}
-                  </a>
-                )
+              {anchorLinks.map((link) => (
+                <button
+                  key={link.href}
+                  onClick={() => handleScroll(link.href)}
+                  className="block text-left text-sm text-white/60 hover:text-white transition-colors"
+                  style={{ fontFamily: FONTS.body }}
+                >
+                  {link.label}
+                </button>
               ))}
             </div>
           </div>
@@ -110,17 +84,17 @@ export default function Footer() {
           <div>
             <h3
               className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              style={{ fontFamily: FONTS.body }}
             >
               Страницы
             </h3>
             <div className="space-y-2">
-              {footerSections.pages.map((link) => (
+              {FOOTER_PAGES.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="block text-sm text-white/60 hover:text-white transition-colors"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  style={{ fontFamily: FONTS.body }}
                 >
                   {link.label}
                 </a>
@@ -133,17 +107,17 @@ export default function Footer() {
             {/* Документы */}
             <h3
               className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              style={{ fontFamily: FONTS.body }}
             >
               Документы
             </h3>
             <div className="space-y-2 mb-6">
-              {footerSections.documents.map((link) => (
+              {FOOTER_DOCUMENTS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="block text-sm text-white/60 hover:text-white transition-colors"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  style={{ fontFamily: FONTS.body }}
                 >
                   {link.label}
                 </a>
@@ -153,29 +127,28 @@ export default function Footer() {
             {/* Контакты */}
             <h3
               className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              style={{ fontFamily: FONTS.body }}
             >
               Контакты
             </h3>
             <div className="space-y-3">
               <a
-                href="mailto:stepnoy.hranitel@fa.ru"
+                href={`mailto:${CONTACTS.email}`}
                 className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                style={{ fontFamily: FONTS.body }}
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
                   <path d="M2 5l6 4 6-4" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
-                stepnoy.hranitel@fa.ru
+                {CONTACTS.email}
               </a>
               <p
                 className="text-sm text-white/60 leading-relaxed"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                style={{ fontFamily: FONTS.body }}
               >
-                Финансовый университет<br />
-                при Правительстве РФ<br />
-                Факультет МЭиМО
+                {CONTACTS.institution}<br />
+                {CONTACTS.faculty}
               </p>
             </div>
           </div>
@@ -185,13 +158,13 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p
             className="text-white/40 text-xs"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            style={{ fontFamily: FONTS.body }}
           >
             © 2026 Степной хранитель · Студенческая просветительская инициатива
           </p>
           <p
             className="text-white/40 text-xs"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            style={{ fontFamily: FONTS.body }}
           >
             Проект реализуется в 2026–2027 годах
           </p>

@@ -9,6 +9,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { InteractiveMap } from "@/components/InteractiveMap";
 import type { HabitatPoint } from "@/components/InteractiveMap";
 
@@ -329,11 +330,11 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.querySelector("#information")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-8 py-4 rounded-full bg-[oklch(0.38_0.11_145)] text-white font-semibold hover:bg-[oklch(0.32_0.11_145)] transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-lg"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                Узнать о мануле
+                О проекте
               </button>
               <button
                 onClick={() => document.querySelector("#help")?.scrollIntoView({ behavior: "smooth" })}
@@ -357,6 +358,285 @@ export default function Home() {
             <StatCard value={68} suffix="%" label="молодых котят не доживают до расселения" delay={100} />
             <StatCard value={50} suffix="%" label="смертность взрослых особей" delay={200} />
             <StatCard value={13} suffix="%" label="ареала вида находится под охраной" delay={300} />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          INFORMATION (О ПРОЕКТЕ)
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section id="information" className="py-24 md:py-32">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              О проекте
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[oklch(0.20_0.03_65)] leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
+              Степной хранитель —<br />
+              <em>студенческая инициатива</em>
+            </h2>
+            <Divider />
+            <div className="mt-8 space-y-4 text-[oklch(0.40_0.03_65)] leading-relaxed text-lg"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <p>
+                <strong className="text-[oklch(0.20_0.03_65)]">«Степной хранитель»</strong> — 
+                информационно-просветительская платформа, созданная студентами Финансового университета 
+                при Правительстве РФ для привлечения внимания к проблемам сохранения манула.
+              </p>
+              <p>
+                Наш маскот — манул, самая пушистая кошка в мире, символизирует стойкость и 
+                адаптивность. Для нас это не просто проект, а <strong className="text-[oklch(0.20_0.03_65)]">личная миссия</strong>: 
+                защитить популяцию вида и вовлечь молодёжь в природоохранную деятельность.
+              </p>
+              <p>
+                Платформа объединяет научно-популярные материалы, аналитику угроз, интерактивные 
+                инструменты и возможности для реального участия в сохранении манула.
+              </p>
+            </div>
+
+            {/* Project goals */}
+            <div className="mt-12 grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: "📚",
+                  title: "Просвещение",
+                  desc: "Распространение знаний о мануле и степных экосистемах",
+                },
+                {
+                  icon: "🤝",
+                  title: "Вовлечение",
+                  desc: "Включение студентов в природоохранную повестку",
+                },
+                {
+                  icon: "🛡️",
+                  title: "Защита",
+                  desc: "Поддержка реальных охранных инициатив и организаций",
+                },
+              ].map((item) => (
+                <div key={item.title} className="bg-white rounded-2xl p-6 border border-[oklch(0.88_0.015_75)]">
+                  <div className="text-3xl mb-4">{item.icon}</div>
+                  <h3 className="font-bold text-[oklch(0.20_0.03_65)] mb-2"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-[oklch(0.50_0.03_65)]"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          STRUCTURE (РУБРИКИ САЙТА)
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section id="structure" className="py-24 md:py-32 bg-[oklch(0.93_0.015_85)]">
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Структура платформы
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[oklch(0.20_0.03_65)] leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
+              Разделы и<br />
+              <em>рубрики сайта</em>
+            </h2>
+            <Divider />
+            <p className="mt-6 text-[oklch(0.45_0.03_65)] text-lg max-w-2xl mx-auto leading-relaxed"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Платформа состоит из нескольких ключевых разделов, каждый из которых 
+              выполняет свою функцию в просвещении и вовлечении аудитории.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "📖",
+                title: "Статьи",
+                desc: "Научно-популярные материалы о биологии, экологии и поведении манула.",
+                link: "/articles",
+              },
+              {
+                icon: "⚠️",
+                title: "Угрозы",
+                desc: "Аналитический раздел об угрозах популяции манула и факторах сокращения численности.",
+                link: "/threats",
+              },
+              {
+                icon: "💡",
+                title: "Проблемы",
+                desc: "Ключевые проблемы вида с возможностью предлагать собственные решения.",
+                link: "/problems",
+              },
+              {
+                icon: "🤲",
+                title: "Как помочь?",
+                desc: "Информация о том, как студенты могут реально помочь, и ссылки на проверенные зоозащитные организации.",
+                link: "/help",
+              },
+              {
+                icon: "📍",
+                title: "Ареал",
+                desc: "Интерактивная карта распространения манула и информация о региональных популяциях.",
+                link: "#habitat",
+              },
+              {
+                icon: "📊",
+                title: "Аналитика",
+                desc: "Данные мониторинга, прогнозы экологов и визуализация динамики популяции.",
+                link: "#analytics",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
+              >
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-[oklch(0.20_0.03_65)] text-lg mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {item.title}
+                </h3>
+                <p className="text-sm text-[oklch(0.50_0.03_65)] leading-relaxed mb-4"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  {item.desc}
+                </p>
+                <a
+                  href={item.link}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.28_0.11_145)] transition-colors group/link"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  Перейти
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="group-hover/link:translate-x-1 transition-transform">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          CALENDAR PLAN (КАЛЕНДАРНЫЙ ПЛАН)
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section id="calendar" className="py-24 md:py-32">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                Календарный план
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[oklch(0.20_0.03_65)] leading-tight mb-6"
+                style={{ fontFamily: "'Playfair Display', serif" }}>
+                Этапы реализации<br />
+                <em>проекта 2026–2027</em>
+              </h2>
+              <Divider />
+              <p className="mt-6 text-[oklch(0.45_0.03_65)] text-lg leading-relaxed"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                Проект реализуется в течение двух лет. Ниже представлены ключевые этапы 
+                и сроки их выполнения.
+              </p>
+            </div>
+
+            {/* Timeline */}
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[oklch(0.88_0.015_75)]" />
+
+              {/* Timeline items */}
+              <div className="space-y-12">
+                {[
+                  {
+                    period: "Январь – Март 2026",
+                    title: "Подготовительный этап",
+                    items: [
+                      "Разработка концепции платформы",
+                      "Сбор и анализ научных материалов",
+                      "Формирование команды проекта",
+                    ],
+                  },
+                  {
+                    period: "Апрель – Июнь 2026",
+                    title: "Разработка платформы",
+                    items: [
+                      "Создание дизайна и верстка",
+                      "Наполнение контентом",
+                      "Интеграция интерактивных элементов",
+                    ],
+                  },
+                  {
+                    period: "Июль – Сентябрь 2026",
+                    title: "Запуск и продвижение",
+                    items: [
+                      "Публичный запуск платформы",
+                      "Информационная кампания в соцсетях",
+                      "Привлечение партнёров и волонтёров",
+                    ],
+                  },
+                  {
+                    period: "Октябрь – Декабрь 2026",
+                    title: "Расширение функционала",
+                    items: [
+                      "Добавление новых материалов",
+                      "Внедрение пользовательских предложений",
+                      "Интеграция с зоозащитными организациями",
+                    ],
+                  },
+                  {
+                    period: "2027 год",
+                    title: "Масштабирование и развитие",
+                    items: [
+                      "Расширение географии охвата",
+                      "Новые партнёрства и инициативы",
+                      "Мониторинг эффективности и отчётность",
+                    ],
+                  },
+                ].map((stage, i) => (
+                  <div key={i} className={`relative flex gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    {/* Dot */}
+                    <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-[oklch(0.38_0.11_145)] rounded-full -translate-x-1/2 mt-6 ring-4 ring-white" />
+                    
+                    {/* Content */}
+                    <div className={`flex-1 ml-12 md:ml-0 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
+                      <div className="inline-block px-3 py-1 rounded-full bg-[oklch(0.93_0.04_145)] text-[oklch(0.38_0.11_145)] text-xs font-semibold mb-3"
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        {stage.period}
+                      </div>
+                      <h3 className="text-xl font-bold text-[oklch(0.20_0.03_65)] mb-3"
+                        style={{ fontFamily: "'Playfair Display', serif" }}>
+                        {stage.title}
+                      </h3>
+                      <ul className={`space-y-2 text-sm text-[oklch(0.50_0.03_65)] ${i % 2 === 0 ? 'md:ml-auto md:max-w-xs' : 'max-w-xs'}`}
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                        {stage.items.map((item, j) => (
+                          <li key={j} className="flex items-center gap-2">
+                            {i % 2 !== 0 && (
+                              <span className="w-1.5 h-1.5 bg-[oklch(0.38_0.11_145)] rounded-full flex-shrink-0" />
+                            )}
+                            {item}
+                            {i % 2 === 0 && (
+                              <span className="w-1.5 h-1.5 bg-[oklch(0.38_0.11_145)] rounded-full flex-shrink-0 md:order-first" />
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* Spacer for alternating layout */}
+                    <div className="hidden md:block flex-1" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1860,102 +2140,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           FOOTER
       ═══════════════════════════════════════════════════════════════════ */}
-      <footer className="bg-[oklch(0.15_0.04_65)] text-white py-12">
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-10 mb-10">
-            {/* Brand */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp"
-                  alt="Логотип"
-                  className="w-10 h-10 object-contain"
-                />
-                <div>
-                  <div className="font-bold text-lg leading-none"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Степной хранитель
-                  </div>
-                  <div className="text-xs text-white/50 tracking-widest uppercase"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    Защита манула
-                  </div>
-                </div>
-              </div>
-              <p className="text-white/60 text-sm leading-relaxed"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Информационно-просветительская платформа о мануле. Инициатива студентов 
-                Финансового университета при Правительстве РФ.
-              </p>
-            </div>
-
-            {/* Navigation */}
-            <div>
-              <h3 className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Разделы
-              </h3>
-              <div className="space-y-2">
-                {[
-                  ["О мануле", "#about"],
-                  ["Угрозы", "#threats"],
-                  ["Аналитика", "#analytics"],
-                  ["Ареал", "#habitat"],
-                  ["Как помочь", "#help"],
-                  ["Организации", "#organizations"],
-                  ["Мероприятия", "#events"],
-                  ["Команда", "#team"],
-                ].map(([label, href]) => (
-                  <button
-                    key={href}
-                    onClick={() => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })}
-                    className="block text-sm text-white/60 hover:text-white transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h3 className="font-semibold text-sm uppercase tracking-widest text-white/50 mb-4"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Контакты
-              </h3>
-              <div className="space-y-3">
-                <a href="mailto:stepnoy.hranitel@fa.ru"
-                  className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
-                    <path d="M2 5l6 4 6-4" stroke="currentColor" strokeWidth="1.2" />
-                  </svg>
-                  stepnoy.hranitel@fa.ru
-                </a>
-                <p className="text-sm text-white/60 leading-relaxed"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  Финансовый университет<br />
-                  при Правительстве РФ<br />
-                  Факультет МЭиМО
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/40 text-xs"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              © 2026 Степной хранитель · Студенческая просветительская инициатива
-            </p>
-            <p className="text-white/40 text-xs"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Проект реализуется в 2026–2027 годах
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

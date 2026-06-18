@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import Footer from "@/components/Footer";
 
 const problems = [
   {
@@ -599,32 +600,7 @@ export default function Problems() {
         )}
 
         {/* Footer */}
-        <footer className="bg-[oklch(0.18_0.04_65)] text-white py-12 mt-16">
-          <div className="container text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp"
-                alt="Логотип" referrerPolicy="no-referrer" crossOrigin="anonymous"
-                className="w-10 h-10 object-contain"
-              />
-              <div className="font-bold text-xl"
-                style={{ fontFamily: "'Playfair Display', serif" }}>
-                Степной хранитель
-              </div>
-            </div>
-            <p className="text-white/60 text-sm mb-6"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Информационно-просветительская платформа о мануле.
-            </p>
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 text-sm text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.32_0.11_145)] transition-colors"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              ← Вернуться на главную
-            </a>
-          </div>
-        </footer>
+        <Footer />
       </div>
   );
 }

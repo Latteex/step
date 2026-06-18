@@ -7,15 +7,13 @@
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "О мануле", href: "#about" },
-  { label: "Угрозы", href: "#threats" },
-  { label: "Ареал", href: "#habitat" },
+  { label: "Главная", href: "#" },
+  { label: "Информация", href: "#information" },
+  { label: "Структура", href: "#structure" },
   { label: "Статьи", href: "/articles" },
+  { label: "Угрозы", href: "/threats" },
   { label: "Проблемы", href: "/problems" },
-  { label: "Аналитика", href: "/analytics" },
-  { label: "Как помочь", href: "/help" },
-  { label: "Мероприятия", href: "#events" },
-  { label: "Команда", href: "#team" },
+  { label: "Как помочь?", href: "/help" },
 ];
 
 export default function Navbar() {
@@ -105,13 +103,7 @@ export default function Navbar() {
               </a>
             )
           ))}
-          <button
-            onClick={() => handleLink("#help")}
-            className="ml-2 px-5 py-2 rounded-full text-sm font-semibold bg-[oklch(0.38_0.11_145)] text-white hover:bg-[oklch(0.32_0.11_145)] transition-all duration-200 hover:-translate-y-0.5 active:scale-95 shadow-sm"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Помочь манулу
-          </button>
+
         </nav>
 
         {/* Mobile burger */}
@@ -156,13 +148,7 @@ export default function Navbar() {
               </a>
             )
           ))}
-          <button
-            onClick={() => handleLink("#help")}
-            className="mt-3 px-5 py-2.5 rounded-full text-sm font-semibold bg-[oklch(0.38_0.11_145)] text-white hover:bg-[oklch(0.32_0.11_145)] transition-colors text-center"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Помочь манулу
-          </button>
+
         </div>
       </div>
     </header>

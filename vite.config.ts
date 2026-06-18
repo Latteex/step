@@ -4,6 +4,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

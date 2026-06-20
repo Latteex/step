@@ -90,9 +90,9 @@ export const CONTACTS = {
 // ─── Изображения ──────────────────────────────────────────────────────────
 export const IMAGES = {
   logo: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp",
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp",
-  manulPortrait: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp",
-  manulFamily: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-family-ZqmYajRNuFLCPkMrQPPd7o.webp",
+  hero: "/assets/images/hero-manul.webp",
+  manulPortrait: "/assets/images/manul-portrait-serious.webp",
+  manulFamily: "/assets/images/manul-family.webp",
 };
 
 // ─── Статистика ───────────────────────────────────────────────────────────

@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
 import Problems from "./pages/Problems";
@@ -37,6 +38,7 @@ function App() {
     <ErrorBoundary>
       <TooltipProvider>
         <Toaster />
+        <Navbar />
         <Router />
       </TooltipProvider>
     </ErrorBoundary>

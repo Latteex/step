@@ -320,45 +320,14 @@ export default function Problems() {
 
   return (
     <div className="min-h-screen bg-white">
-        {/* Header */}
-        <header className="bg-white border-b border-[oklch(0.88_0.015_75)] sticky top-0 z-40">
-          <div className="container py-4 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-3 group">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp"
-                alt="Логотип" referrerPolicy="no-referrer" crossOrigin="anonymous"
-                className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
-              />
-              <div>
-                <div className="font-bold text-lg leading-none text-[oklch(0.20_0.03_65)]"
-                  style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Степной хранитель
-                </div>
-                <div className="text-xs text-[oklch(0.55_0.03_65)] tracking-widest uppercase"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  Ключевые проблемы
-                </div>
-              </div>
-            </a>
-            <a
-              href="/"
-              className="text-sm text-[oklch(0.45_0.03_65)] hover:text-[oklch(0.38_0.11_145)] transition-colors"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              ← На главную
-            </a>
-          </div>
-        </header>
-
         {/* Hero */}
         <section className="relative py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+              src="/assets/images/manul-portrait-serious.webp"
               alt="Манул"
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover opacity-35"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
           </div>
           <div className="container text-center relative">
             <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
@@ -415,11 +384,10 @@ export default function Problems() {
             <div className="relative bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)] overflow-hidden">
               <div className="absolute inset-0">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                  src="/assets/images/manul-portrait-serious.webp"
                   alt="Манул"
-                  className="w-full h-full object-cover opacity-20"
+                  className="w-full h-full object-cover opacity-35"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
               </div>
               <div className="relative">
               <div className="text-center mb-10">

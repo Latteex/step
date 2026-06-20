@@ -3,49 +3,13 @@ import Footer from "@/components/Footer";
 export default function PersonalDataPolicy() {
   return (
     <div className="min-h-screen bg-[oklch(0.95_0.015_85)]">
-      {/* Header */}
-      <header className="bg-[oklch(0.15_0.04_65)] border-b border-[oklch(0.25_0.04_65)] sticky top-0 z-40">
-        <div className="container py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 group">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/logo-manul-iziNX2T6GedxBB5dPoDr4s.webp"
-              alt="Логотип"
-              referrerPolicy="no-referrer"
-              crossOrigin="anonymous"
-              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
-            />
-            <div>
-              <div
-                className="font-bold text-lg leading-none text-white"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Степной хранитель
-              </div>
-              <div
-                className="text-xs text-[oklch(0.60_0.02_75)] tracking-widest uppercase"
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
-              >
-                Обработка персональных данных
-              </div>
-            </div>
-          </a>
-          <a
-            href="/"
-            className="text-sm text-[oklch(0.60_0.02_75)] hover:text-white transition-colors"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            ← На главную
-          </a>
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="relative py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+            src="/assets/images/manul-portrait-serious.webp"
             alt="Манул"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-35"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/90 to-[oklch(0.90_0.04_145)]/90" />
         </div>

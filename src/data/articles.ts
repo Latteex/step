@@ -71,7 +71,7 @@ export const articles: Article[] = [
     readTime: "12 мин",
     author: "Д-р биол. наук А.В. Барышников",
     date: "15 января 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp",
+    image: "/assets/images/manul-portrait-serious.webp",
   },
   {
     id: 2,
@@ -114,7 +114,7 @@ export const articles: Article[] = [
     readTime: "10 мин",
     author: "К.б.н. Е.С. Петрова",
     date: "22 января 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp",
+    image: "/assets/images/hero-manul.webp",
   },
   {
     id: 3,
@@ -160,7 +160,7 @@ export const articles: Article[] = [
     readTime: "8 мин",
     author: "Эколог Д.К. Назарбаев",
     date: "5 февраля 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp",
+    image: "/assets/images/manul-portrait-serious.webp",
   },
   {
     id: 4,
@@ -210,7 +210,7 @@ export const articles: Article[] = [
     readTime: "9 мин",
     author: "Зоолог М.Т. Уланова",
     date: "18 февраля 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp",
+    image: "/assets/images/hero-manul.webp",
   },
   {
     id: 5,
@@ -264,7 +264,7 @@ export const articles: Article[] = [
     readTime: "11 мин",
     author: "Эколог А.Р. Саидова",
     date: "3 марта 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp",
+    image: "/assets/images/manul-portrait-serious.webp",
   },
   {
     id: 6,
@@ -323,6 +323,6 @@ export const articles: Article[] = [
     readTime: "10 мин",
     author: "Д-р биол. наук К.Л. Воронов",
     date: "20 марта 2026",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp",
+    image: "/assets/images/hero-manul.webp",
   },
 ];

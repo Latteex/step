@@ -8,7 +8,6 @@
  */
 
 import { useEffect, useRef, useState } from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { InteractiveMap } from "@/components/InteractiveMap";
 import type { HabitatPoint } from "@/components/InteractiveMap";
@@ -314,15 +313,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[oklch(0.95_0.015_85)]">
-      <Navbar />
-
       {/* ═══════════════════════════════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp"
+            src="/assets/images/hero-manul.webp"
             alt="Манул в естественной среде"
             className="w-full h-full object-cover object-center"
           />
@@ -716,7 +713,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp"
+                  src="/assets/images/hero-manul.webp"
                   alt="Манул в естественной среде обитания"
                   className="w-full h-[500px] object-cover"
                 />
@@ -810,7 +807,7 @@ export default function Home() {
                 <div className="grid md:grid-cols-2">
                   <div className="h-64 md:h-auto overflow-hidden">
                     <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                      src="/assets/images/manul-portrait-serious.webp"
                       alt="Манул в естественной среде"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -935,7 +932,7 @@ export default function Home() {
             <div ref={habitatRef} className="fade-up order-2 lg:order-1">
               <div className="relative rounded-3xl overflow-hidden shadow-xl">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-family-ZqmYajRNuFLCPkMrQPPd7o.webp"
+                  src="/assets/images/manul-family.webp"
                   alt="Манул с котятами в естественной среде"
                   className="w-full h-[450px] object-cover"
                 />
@@ -1124,17 +1121,8 @@ export default function Home() {
           </div>
 
           {/* User solutions form */}
-          <div className="relative bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)] overflow-hidden">
-            <div className="absolute inset-0">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
-                alt="Манул"
-                className="w-full h-full object-cover opacity-10"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
-            </div>
-            <div className="relative">
-              <div className="text-center mb-10">
+          <div className="bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)]">
+            <div className="text-center mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-[oklch(0.20_0.03_65)] mb-4"
                 style={{ fontFamily: "'Playfair Display', serif" }}>
                 Предложи своё решение
@@ -1254,7 +1242,6 @@ export default function Home() {
                 </label>
               </div>
             </form>
-            </div>
           </div>
 
           {/* CTA Link */}
@@ -1938,7 +1925,7 @@ export default function Home() {
               {/* Image */}
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                  src="/assets/images/manul-portrait-serious.webp"
                   alt="Манул — серьёзный взгляд"
                   className="w-full h-56 object-cover"
                 />
@@ -2150,7 +2137,7 @@ export default function Home() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/hero-manul-Y2nGWWx4dn7WXd3xkt2JdN.webp"
+            src="/assets/images/hero-manul.webp"
             alt="Манул"
             className="w-full h-full object-cover object-center"
           />

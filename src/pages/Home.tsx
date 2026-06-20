@@ -1124,8 +1124,17 @@ export default function Home() {
           </div>
 
           {/* User solutions form */}
-          <div className="bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)]">
-            <div className="text-center mb-10">
+          <div className="relative bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)] overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                alt="Манул"
+                className="w-full h-full object-cover opacity-10"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
+            </div>
+            <div className="relative">
+              <div className="text-center mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-[oklch(0.20_0.03_65)] mb-4"
                 style={{ fontFamily: "'Playfair Display', serif" }}>
                 Предложи своё решение
@@ -1245,6 +1254,7 @@ export default function Home() {
                 </label>
               </div>
             </form>
+            </div>
           </div>
 
           {/* CTA Link */}
@@ -2086,49 +2096,49 @@ export default function Home() {
               role="Руководитель проекта"
               bio="Студент 2 курса Финансового университета. Дизайнер с 4-летним стажем, маркетолог. Опыт курирования проектных и дизайнерских команд. Разработал проект фирменной продукции университета и оформления коридоров. Курировал команду дизайнеров, создававшую афиши и промо-материалы Факультета МЭО."
               delay={0}
-              photo="/assets/images/timofey.jpg"
+              photo="/assets/images/timofey.webp"
             />
             <TeamCard
               name="Екатерина Романенко"
               role="Работа с партнёрами, организация мероприятий"
               bio="Студентка 2 курса, председатель научного студенческого общества Факультета МЭО (2 место в конкурсе СНО экономических вузов). Организатор 2 международных студенческих конференций с участием студентов из Китая, Индии, Малайзии. Куратор конкурса «ПРОСМЫСЛЫ» от «Дома народов России»."
               delay={80}
-              photo="/assets/images/ekaterina.jpg"
+              photo="/assets/images/ekaterina.webp"
             />
             <TeamCard
               name="Виктория Хурхесова"
               role="Разработка и наполнение сайта"
               bio="Студентка 2 курса, участница научного студенческого общества. Медиа-амбассадор карьерной платформы Changellenge. Соорганизатор ивентов «Ночь студентов» от Альфа-Будущего. Автор более 10 научных работ и статей по экономике Китая и России."
               delay={160}
-              photo="/assets/images/viktoriya.jpg"
+              photo="/assets/images/viktoriya.webp"
             />
             <TeamCard
               name="Егор Кальченко"
               role="Разработка и наполнение сайта"
               bio="Студент 1 курса, участник научного студенческого общества. Призёр конкурса «Цифровые решения и инновационные проекты в финансовой сфере» в рамках международной студенческой конференции. Активный участник просветительской деятельности Факультета МЭО и Финансового университета."
               delay={240}
-              photo="/assets/images/egor.jpg"
+              photo="/assets/images/egor.webp"
             />
             <TeamCard
               name="Алина Иванова"
               role="Разработка и наполнение сайта"
               bio="Студентка 1 курса, участница научного студенческого общества. Волонтёр мероприятий РАН, «Финатлон-форум», «The Asian and Pacific Centre for Transfer of Technology». Призёр олимпиады МГУ имени Ломоносова по философии (1 уровень), призёр ВСОШ."
               delay={320}
-              photo="/assets/images/alina.jpg"
+              photo="/assets/images/alina.webp"
             />
             <TeamCard
               name="Софья Хаммуде"
               role="Маркетинг и продвижение"
               bio="Студентка 2 курса. Специалист по маркетингу и продвижению Telegram-проектов. За год привлекла более 300 тысяч уникальных пользователей к проекту."
               delay={400}
-              photo="/assets/images/sofya.jpg"
+              photo="/assets/images/sofya.webp"
             />
             <TeamCard
               name="Арсений Касторин"
               role="Организация очных мероприятий"
               bio="Студент 2 курса, председатель спортивного клуба Факультета МЭО. Организатор спортивных мероприятий на Факультете."
               delay={480}
-              photo="/assets/images/arseniy.jpg"
+              photo="/assets/images/arseniy.webp"
             />
           </div>
         </div>

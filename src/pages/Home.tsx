@@ -117,7 +117,7 @@ function ThreatCard({ icon, title, desc, delay = 0 }: { icon: string; title: str
 }
 
 // ─── Help card ─────────────────────────────────────────────────────────────
-function HelpCard({ icon, title, desc, cta, href, delay = 0 }: { icon: string; title: string; desc: string; cta: string; href: string; delay?: number }) {
+function HelpCard({ icon, title, desc, cta, href, delay = 0, disabled = false }: { icon: string; title: string; desc: string; cta: string; href: string; delay?: number; disabled?: boolean }) {
   const ref = useReveal();
   return (
     <div
@@ -134,16 +134,18 @@ function HelpCard({ icon, title, desc, cta, href, delay = 0 }: { icon: string; t
         style={{ fontFamily: "'Montserrat', sans-serif" }}>
         {desc}
       </p>
-      <a
-        href={href}
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.28_0.11_145)] transition-colors group/link"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}
-      >
-        {cta}
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="group-hover/link:translate-x-1 transition-transform">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
+      {!disabled && (
+        <a
+          href={href}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.28_0.11_145)] transition-colors group/link"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
+          {cta}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="group-hover/link:translate-x-1 transition-transform">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      )}
     </div>
   );
 }
@@ -211,30 +213,45 @@ function EventCard({ date, title, desc, delay = 0 }: { date: string; title: stri
 }
 
 // ─── Team card ─────────────────────────────────────────────────────────────
-function TeamCard({ name, role, bio, delay = 0 }: { name: string; role: string; bio: string; delay?: number }) {
+function TeamCard({ name, role, bio, delay = 0, photo }: { name: string; role: string; bio: string; delay?: number; photo?: string }) {
   const ref = useReveal();
   return (
     <div
       ref={ref}
-      className="fade-up bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl p-5 hover:shadow-md transition-all duration-200"
+      className="fade-up bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[oklch(0.38_0.11_145)] to-[oklch(0.50_0.11_145)] flex items-center justify-center text-white font-bold text-lg mb-4"
-        style={{ fontFamily: "'Playfair Display', serif" }}>
-        {name.charAt(0)}
+      <div className="relative h-64 bg-gradient-to-br from-[oklch(0.93_0.015_85)] to-[oklch(0.90_0.015_85)]">
+        {photo ? (
+          <img
+            src={photo}
+            alt={name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[oklch(0.38_0.11_145)] to-[oklch(0.50_0.11_145)] flex items-center justify-center text-white font-bold text-3xl"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
+              {name.charAt(0)}
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
       </div>
-      <h3 className="font-bold text-[oklch(0.20_0.03_65)] text-base mb-1"
-        style={{ fontFamily: "'Playfair Display', serif" }}>
-        {name}
-      </h3>
-      <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-wide mb-3"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        {role}
+      <div className="p-6">
+        <h3 className="font-bold text-[oklch(0.20_0.03_65)] text-lg mb-1"
+          style={{ fontFamily: "'Playfair Display', serif" }}>
+          {name}
+        </h3>
+        <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-wide mb-3"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          {role}
+        </div>
+        <p className="text-sm text-[oklch(0.50_0.03_65)] leading-relaxed"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          {bio}
+        </p>
       </div>
-      <p className="text-xs text-[oklch(0.50_0.03_65)] leading-relaxed"
-        style={{ fontFamily: "'Montserrat', sans-serif" }}>
-        {bio}
-      </p>
     </div>
   );
 }
@@ -1738,10 +1755,10 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <HelpCard
               icon=""
-              title="Волонтёрство"
-              desc="Участвуй в полевых экспедициях, мониторинге популяций и природоохранных акциях совместно с экологами и специалистами по охране дикой природы."
-              cta="Узнать о волонтёрстве"
-              href="https://manul.ru"
+              title="Участвуй в мероприятиях"
+              desc="Посещай лекции с экологами, дискуссионные сессии и интерактивные мероприятия проекта. Активные участники получают брендированную продукцию проекта."
+              cta="Смотреть мероприятия"
+              href="#events"
               delay={0}
             />
             <HelpCard
@@ -1766,14 +1783,16 @@ export default function Home() {
               desc="Расскажи друзьям и однокурсникам о мануле и проблемах его сохранения. Повышение осведомлённости — один из ключевых инструментов защиты вида."
               cta="Поделиться проектом"
               href="#"
+              disabled={true}
               delay={240}
             />
             <HelpCard
               icon=""
-              title="Участвуй в мероприятиях"
-              desc="Посещай лекции с экологами, дискуссионные сессии и интерактивные мероприятия проекта. Активные участники получают брендированную продукцию проекта."
-              cta="Смотреть мероприятия"
-              href="#events"
+              title="Волонтёрство"
+              desc="Участвуй в полевых экспедициях, мониторинге популяций и природоохранных акциях совместно с экологами и специалистами по охране дикой природы."
+              cta="Узнать о волонтёрстве"
+              href="https://manul.ru"
+              disabled={true}
               delay={320}
             />
             <HelpCard
@@ -1782,6 +1801,7 @@ export default function Home() {
               desc="Пиши научные статьи, курсовые и дипломные работы по теме сохранения манула. Финансовые и экономические компетенции нужны природоохранным организациям."
               cta="Темы для исследований"
               href="#"
+              disabled={true}
               delay={400}
             />
           </div>
@@ -2060,48 +2080,55 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <TeamCard
               name="Тимофей Марачев"
               role="Руководитель проекта"
               bio="Студент 2 курса Финансового университета. Дизайнер с 4-летним стажем, маркетолог. Опыт курирования проектных и дизайнерских команд. Разработал проект фирменной продукции университета и оформления коридоров. Курировал команду дизайнеров, создававшую афиши и промо-материалы Факультета МЭО."
               delay={0}
+              photo="/assets/images/timofey.jpg"
             />
             <TeamCard
               name="Екатерина Романенко"
               role="Работа с партнёрами, организация мероприятий"
               bio="Студентка 2 курса, председатель научного студенческого общества Факультета МЭО (2 место в конкурсе СНО экономических вузов). Организатор 2 международных студенческих конференций с участием студентов из Китая, Индии, Малайзии. Куратор конкурса «ПРОСМЫСЛЫ» от «Дома народов России»."
               delay={80}
+              photo="/assets/images/ekaterina.jpg"
             />
             <TeamCard
               name="Виктория Хурхесова"
               role="Разработка и наполнение сайта"
               bio="Студентка 2 курса, участница научного студенческого общества. Медиа-амбассадор карьерной платформы Changellenge. Соорганизатор ивентов «Ночь студентов» от Альфа-Будущего. Автор более 10 научных работ и статей по экономике Китая и России."
               delay={160}
+              photo="/assets/images/viktoriya.jpg"
             />
             <TeamCard
               name="Егор Кальченко"
               role="Разработка и наполнение сайта"
               bio="Студент 1 курса, участник научного студенческого общества. Призёр конкурса «Цифровые решения и инновационные проекты в финансовой сфере» в рамках международной студенческой конференции. Активный участник просветительской деятельности Факультета МЭО и Финансового университета."
               delay={240}
+              photo="/assets/images/egor.jpg"
             />
             <TeamCard
               name="Алина Иванова"
               role="Разработка и наполнение сайта"
               bio="Студентка 1 курса, участница научного студенческого общества. Волонтёр мероприятий РАН, «Финатлон-форум», «The Asian and Pacific Centre for Transfer of Technology». Призёр олимпиады МГУ имени Ломоносова по философии (1 уровень), призёр ВСОШ."
               delay={320}
+              photo="/assets/images/alina.jpg"
             />
             <TeamCard
               name="Софья Хаммуде"
               role="Маркетинг и продвижение"
               bio="Студентка 2 курса. Специалист по маркетингу и продвижению Telegram-проектов. За год привлекла более 300 тысяч уникальных пользователей к проекту."
               delay={400}
+              photo="/assets/images/sofya.jpg"
             />
             <TeamCard
               name="Арсений Касторин"
               role="Организация очных мероприятий"
               bio="Студент 2 курса, председатель спортивного клуба Факультета МЭО. Организатор спортивных мероприятий на Факультете."
               delay={480}
+              photo="/assets/images/arseniy.jpg"
             />
           </div>
         </div>

@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 
 const helpOptions = [
   {
-    icon: "🤝",
+    icon: "",
     title: "Волонтёрство",
     description: "Участвуй в полевых экспедициях, мониторинге популяций и природоохранных акциях.",
     actions: [
@@ -15,7 +15,7 @@ const helpOptions = [
     linkText: "Узнать о волонтёрстве",
   },
   {
-    icon: "💡",
+    icon: "",
     title: "Предложи идею",
     description: "Разработай и представь свой проект по сохранению манула.",
     actions: [
@@ -28,7 +28,7 @@ const helpOptions = [
     linkText: "Отправить идею",
   },
   {
-    icon: "💚",
+    icon: "",
     title: "Пожертвование",
     description: "Поддержи проверенные зоозащитные организации.",
     actions: [
@@ -41,7 +41,7 @@ const helpOptions = [
     linkText: "Выбрать организацию",
   },
   {
-    icon: "📣",
+    icon: "",
     title: "Распространи информацию",
     description: "Расскажи друзьям и однокурсникам о мануле и проблемах его сохранения.",
     actions: [
@@ -54,7 +54,7 @@ const helpOptions = [
     linkText: "Найти материалы",
   },
   {
-    icon: "🎓",
+    icon: "",
     title: "Участвуй в мероприятиях",
     description: "Посещай лекции с экологами и интерактивные мероприятия проекта.",
     actions: [
@@ -67,7 +67,7 @@ const helpOptions = [
     linkText: "Смотреть мероприятия",
   },
   {
-    icon: "🔬",
+    icon: "",
     title: "Научная работа",
     description: "Пиши научные статьи, курсовые и дипломные работы по теме сохранения манула.",
     actions: [
@@ -83,45 +83,45 @@ const helpOptions = [
 
 const organizations = [
   {
-    name: "Дальневосточный леопард",
-    description: "Фонд, занимающийся сохранением редких видов диких кошек России, включая манула.",
-    url: "https://www.amur-leopard.org",
-    focus: "Редкие виды кошек",
+    name: "Фонд «Компас»",
+    description: "Российский экологический фонд, который с 2023 года ведет программу по изучению и сохранению манула. Фонд финансирует учет численности, мониторинг и восстановление мест обитания.",
+    url: "https://eco-compass.ru",
+    focus: "Изучение и сохранение манула",
     donation: true,
   },
   {
-    name: "WWF России",
-    description: "Всемирный фонд дикой природы реализует программы по сохранению степных экосистем.",
-    url: "https://wwf.ru",
-    focus: "Степные экосистемы",
+    name: "Русское географическое общество (РГО)",
+    description: "С 2013 года поддерживает проекты по сохранению манула и сотрудничает с заповедниками, где идут мониторинг и охранные мероприятия для вида.",
+    url: "https://rgo.ru",
+    focus: "Мониторинг и охрана манула",
     donation: true,
   },
   {
-    name: "Манул.ру",
-    description: "Специализированный ресурс о мануле: научные материалы, новости исследований.",
-    url: "https://manul.ru",
-    focus: "Информация и просвещение",
+    name: "Благотворительный фонд «Красивые дети в красивом мире»",
+    description: "Поддержал проект Даурского заповедника «Манулы – знать и сопереживать, чтобы сохранить», помогая с фотоловушками и просветительской работой вокруг охраны манулов.",
+    url: "https://childrensworld.org",
+    focus: "Просвещение и фотоловушки",
+    donation: true,
+  },
+  {
+    name: "Межрегиональная ассоциация «Ирбис»",
+    description: "Российская природоохранная ассоциация, которая начала сотрудничество с российским подразделением Mars для охраны, изучения и увеличения популяции манула в России.",
+    url: "https://altayirbis.ru",
+    focus: "Увеличение популяции манула",
+    donation: true,
+  },
+  {
+    name: "Даурский заповедник",
+    description: "Один из ключевых природных участков обитания манула. Реализует проекты по наблюдению за видом, в том числе совместно с благотворительными фондами и РГО.",
+    url: "https://daurzapoved.com",
+    focus: "Наблюдение за манулом",
     donation: false,
   },
   {
-    name: "Забайкальский нацпарк",
-    description: "Национальный парк в ключевом ареале обитания манула.",
-    url: "https://zabaikalsky-park.ru",
-    focus: "Охрана территорий",
-    donation: false,
-  },
-  {
-    name: "Российское общество сохранения природы",
-    description: "Организация, объединяющая волонтёров и специалистов для природоохранных проектов.",
-    url: "https://www.rosop.ru",
-    focus: "Волонтёрство",
-    donation: true,
-  },
-  {
-    name: "Союз охраны птиц России",
-    description: "Партнёрская организация, работающая над сохранением степных экосистем.",
-    url: "https://rbcu.ru",
-    focus: "Степные экосистемы",
+    name: "Сибирский экологический центр",
+    description: "Организация, которая ведет программу по изучению и сохранению манула и участвует в профильных научно-природоохранных обсуждениях.",
+    url: "https://eco-center.ru",
+    focus: "Программа по изучению и сохранению манула",
     donation: true,
   },
 ];
@@ -165,9 +165,17 @@ export default function Help() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)]">
-        <div className="container text-center">
+        {/* Hero */}
+        <section className="relative py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+              alt="Манул"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
+          </div>
+          <div className="container text-center relative">
           <div
             className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
@@ -188,8 +196,8 @@ export default function Help() {
             «Степной хранитель» — это мост, который соединяет студентов с реальной
             природоохранной повесткой. Выбери свой способ участия.
           </p>
-        </div>
-      </section>
+          </div>
+        </section>
 
       {/* Help Options */}
       <section className="py-16 md:py-24">
@@ -276,14 +284,6 @@ export default function Help() {
                     >
                       {org.name}
                     </h3>
-                    {org.donation && (
-                      <span
-                        className="text-xs px-2 py-1 rounded-full bg-[oklch(0.60_0.11_145)] text-white font-semibold"
-                        style={{ fontFamily: "'Montserrat', sans-serif" }}
-                      >
-                        💚 Приём пожертвований
-                      </span>
-                    )}
                   </div>
                   <p
                     className="text-sm text-[oklch(0.50_0.03_65)] leading-relaxed mb-4"
@@ -319,8 +319,16 @@ export default function Help() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[oklch(0.38_0.11_145)] to-[oklch(0.32_0.11_145)]">
-        <div className="container text-center">
+      <section className="relative py-16 bg-gradient-to-br from-[oklch(0.38_0.11_145)] to-[oklch(0.32_0.11_145)] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+            alt="Манул"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.38_0.11_145)]/90 to-[oklch(0.32_0.11_145)]/90" />
+        </div>
+        <div className="container text-center relative">
           <h2
             className="text-3xl md:text-4xl font-bold text-white mb-6"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -350,8 +358,8 @@ export default function Help() {
               Написать команде
             </a>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
 
       {/* Footer */}
       <Footer />

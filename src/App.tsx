@@ -8,6 +8,8 @@ import Articles from "./pages/Articles";
 import Problems from "./pages/Problems";
 import Threats from "./pages/Threats";
 import Help from "./pages/Help";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PersonalDataPolicy from "./pages/PersonalDataPolicy";
 
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path={"/problems"} component={Problems} />
       <Route path={"/threats"} component={Threats} />
       <Route path={"/help"} component={Help} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/personal-data-policy"} component={PersonalDataPolicy} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 const problems = [
   {
     id: 1,
-    icon: "🏭",
+    icon: "",
     title: "Хозяйственное освоение степей",
     impact: "68% ареала разрушено",
     description: "Распашка земель, рост поголовья скота и промышленное освоение уничтожают естественную среду обитания манула.",
@@ -55,7 +55,7 @@ const problems = [
   },
   {
     id: 2,
-    icon: "🛣️",
+    icon: "",
     title: "Фрагментация местообитаний",
     impact: "Изоляция популяций",
     description: "Строительство дорог и объектов инфраструктуры разделяет популяции, снижая генетическое разнообразие.",
@@ -105,7 +105,7 @@ const problems = [
   },
   {
     id: 3,
-    icon: "📉",
+    icon: "",
     title: "Высокая смертность молодняка",
     impact: "68% котят не выживают",
     description: "Большинство молодых особей погибает до расселения из-за хищников, болезней и недостатка кормовой базы.",
@@ -147,7 +147,7 @@ const problems = [
   },
   {
     id: 4,
-    icon: "🎯",
+    icon: "",
     title: "Браконьерство",
     impact: "Нелегальная охота",
     description: "Охота ради меха и костей для традиционной медицины продолжает угрожать популяции в отдельных регионах.",
@@ -196,7 +196,7 @@ const problems = [
   },
   {
     id: 5,
-    icon: "🌡️",
+    icon: "",
     title: "Изменение климата",
     impact: "Деградация экосистем",
     description: "Изменение климатических условий влияет на численность грызунов — основной кормовой базы манула.",
@@ -239,7 +239,7 @@ const problems = [
   },
   {
     id: 6,
-    icon: "📢",
+    icon: "",
     title: "Низкая осведомлённость",
     impact: "Отсутствие поддержки",
     description: "Общественность недостаточно знает о проблемах вида, что снижает поддержку природоохранных инициатив.",
@@ -351,8 +351,16 @@ export default function Problems() {
         </header>
 
         {/* Hero */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)]">
-          <div className="container text-center">
+        <section className="relative py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+              alt="Манул"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
+          </div>
+          <div className="container text-center relative">
             <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
               style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Угрозы и решения
@@ -365,10 +373,10 @@ export default function Problems() {
             <p className="text-[oklch(0.45_0.03_65)] text-lg max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Манул сталкивается с серьёзными угрозами. Изучите проблемы, 
-              узнайте о текущих мерах решения и предложите своё видение.
+              узнай о текущих мерах решения и предложи своё видение.
             </p>
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Problems Grid */}
         <section className="py-16 md:py-24">
@@ -404,7 +412,16 @@ export default function Problems() {
             </div>
 
             {/* Solutions Form */}
-            <div className="bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)]">
+            <div className="relative bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] rounded-3xl p-8 md:p-12 border border-[oklch(0.85_0.04_145)] overflow-hidden">
+              <div className="absolute inset-0">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                  alt="Манул"
+                  className="w-full h-full object-cover opacity-20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
+              </div>
+              <div className="relative">
               <div className="text-center mb-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-[oklch(0.20_0.03_65)] mb-4"
                   style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -511,7 +528,27 @@ export default function Problems() {
                     Отправить решение
                   </button>
                 </div>
+
+                {/* 152-ФЗ Согласие */}
+                <div className="max-w-2xl mx-auto">
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      required
+                      className="w-5 h-5 mt-0.5 rounded border-[oklch(0.85_0.015_75)] text-[oklch(0.38_0.11_145)] focus:ring-[oklch(0.38_0.11_145)] focus:ring-2 cursor-pointer flex-shrink-0"
+                    />
+                    <span className="text-xs text-[oklch(0.50_0.03_65)] leading-relaxed"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                      Я даю согласие на обработку моих персональных данных (имя, email, текст обращения) в соответствии с{' '}
+                      <a href="/personal-data-policy" className="text-[oklch(0.38_0.11_145)] underline hover:text-[oklch(0.28_0.11_145)]" target="_blank" rel="noopener noreferrer">
+                        Политикой обработки персональных данных
+                      </a>{' '}
+                      в целях обработки моего обращения и связи со мной.
+                    </span>
+                  </label>
+                </div>
               </form>
+              </div>
             </div>
           </div>
         </section>

@@ -38,8 +38,16 @@ export default function Articles() {
         </header>
 
         {/* Hero */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)]">
-          <div className="container text-center">
+        <section className="relative py-16 md:py-24 bg-gradient-to-br from-[oklch(0.93_0.04_145)] to-[oklch(0.90_0.04_145)] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+              alt="Манул"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.93_0.04_145)]/80 to-[oklch(0.90_0.04_145)]/80" />
+          </div>
+          <div className="container text-center relative">
             <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
               style={{ fontFamily: "'Montserrat', sans-serif" }}>
               База знаний
@@ -54,8 +62,8 @@ export default function Articles() {
               Подробные статьи о биологии, экологии, поведении и охране манула. 
               Материалы подготовлены на основе научных исследований и актуальных данных.
             </p>
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Articles Grid */}
         <section className="py-16 md:py-24">

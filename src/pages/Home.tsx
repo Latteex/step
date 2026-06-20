@@ -400,17 +400,17 @@ export default function Home() {
             <div className="mt-12 grid md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: "📚",
+                  icon: "",
                   title: "Просвещение",
                   desc: "Распространение знаний о мануле и степных экосистемах",
                 },
                 {
-                  icon: "🤝",
+                  icon: "",
                   title: "Вовлечение",
                   desc: "Включение студентов в природоохранную повестку",
                 },
                 {
-                  icon: "🛡️",
+                  icon: "",
                   title: "Защита",
                   desc: "Поддержка реальных охранных инициатив и организаций",
                 },
@@ -455,40 +455,34 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             {[
               {
-                icon: "📖",
+                icon: "",
                 title: "Статьи",
                 desc: "Научно-популярные материалы о биологии, экологии и поведении манула.",
                 link: "/articles",
               },
               {
-                icon: "⚠️",
-                title: "Угрозы",
-                desc: "Аналитический раздел об угрозах популяции манула и факторах сокращения численности.",
-                link: "/threats",
-              },
-              {
-                icon: "💡",
+                icon: "",
                 title: "Проблемы",
                 desc: "Ключевые проблемы вида с возможностью предлагать собственные решения.",
                 link: "/problems",
               },
               {
-                icon: "🤲",
+                icon: "",
                 title: "Как помочь?",
                 desc: "Информация о том, как студенты могут реально помочь, и ссылки на проверенные зоозащитные организации.",
                 link: "/help",
               },
               {
-                icon: "📍",
+                icon: "",
                 title: "Ареал",
                 desc: "Интерактивная карта распространения манула и информация о региональных популяциях.",
-                link: "#habitat",
+                link: "#interactive-map",
               },
               {
-                icon: "📊",
+                icon: "",
                 title: "Аналитика",
                 desc: "Данные мониторинга, прогнозы экологов и визуализация динамики популяции.",
                 link: "#analytics",
@@ -496,7 +490,9 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
+                className={`bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group ${
+                  i >= 3 ? (i === 3 ? 'col-span-2' : 'col-start-3') : ''
+                }`}
               >
                 <div className="text-3xl mb-4">{item.icon}</div>
                 <h3 className="font-bold text-[oklch(0.20_0.03_65)] text-lg mb-3"
@@ -767,81 +763,147 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          THREATS
+          POPULAR SCIENCE
       ═══════════════════════════════════════════════════════════════════ */}
-      <section id="threats" className="py-24 md:py-32 bg-[oklch(0.18_0.04_65)]">
+      <section id="science" className="py-24 md:py-32 bg-[oklch(0.95_0.015_85)]">
         <div className="container">
-          <div ref={threatsRef} className="fade-up text-center mb-16">
-            <div className="text-xs font-semibold text-[oklch(0.72_0.12_65)] uppercase tracking-widest mb-4"
+          <div className="fade-up text-center mb-16">
+            <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
               style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Угрозы популяции
+              Научно-популярные материалы
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+            <h2 className="text-4xl md:text-5xl font-bold text-[oklch(0.20_0.03_65)] leading-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif" }}>
-              Почему манул<br />
-              <em className="text-[oklch(0.72_0.12_65)]">под угрозой</em>
+              Познавательные статьи<br />
+              <em>о мануле</em>
             </h2>
-            <p className="text-[oklch(0.70_0.02_75)] text-lg max-w-2xl mx-auto leading-relaxed"
+            <Divider />
+            <p className="mt-6 text-[oklch(0.45_0.03_65)] text-lg max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              В России насчитывается от 4 500 до 9 500 особей — это 8–16% глобальной популяции. 
-              Любая дополнительная смертность заметно бьёт по численности вида.
+              Узнайте больше о биологии, поведении и экологии манула. 
+              Материалы подготовлены на основе научных исследований и 
+              актуальных данных о популяции.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <ThreatCard
-              icon="🌾"
-              title="Хозяйственное освоение"
-              desc="Распашка земель и рост поголовья скота разрушают естественную среду обитания манула."
-              delay={0}
-            />
-            <ThreatCard
-              icon="🛣️"
-              title="Развитие инфраструктуры"
-              desc="Строительство дорог и объектов фрагментирует местообитания, изолируя локальные популяции."
-              delay={80}
-            />
-            <ThreatCard
-              icon="⛏️"
-              title="Добыча ресурсов"
-              desc="Разработка полезных ископаемых нарушает степные экосистемы и уничтожает кормовую базу."
-              delay={160}
-            />
-            <ThreatCard
-              icon="📢"
-              title="Низкая осведомлённость"
-              desc="Общественность недостаточно знает о проблемах вида. Молодёжь не включена в природоохранную повестку."
-              delay={240}
-            />
-          </div>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Featured article */}
+            <div className="fade-up lg:col-span-2" style={{ transitionDelay: '0ms' }}>
+              <div className="bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 group">
+                <div className="grid md:grid-cols-2">
+                  <div className="h-64 md:h-auto overflow-hidden">
+                    <img
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
+                      alt="Манул в естественной среде"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="inline-flex px-3 py-1 rounded-full bg-[oklch(0.93_0.04_145)] text-[oklch(0.38_0.11_145)] text-xs font-semibold mb-4 w-fit"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                       Выбор редакции
+                    </div>
+                    <h3 className="text-2xl font-bold text-[oklch(0.20_0.03_65)] mb-4 leading-tight"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Биология и физиология: почему манул выглядит именно так
+                    </h3>
+                    <p className="text-[oklch(0.45_0.03_65)] leading-relaxed mb-6"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                      Густая шерсть, приземистое тело, плоская морда и круглые глаза — 
+                      каждое приспособление манула имеет эволюционное объяснение. 
+                      Разбираемся, как форма тела помогает кошке выживать в суровых 
+                      степях Забайкалья при температурах от −40 °C до +40 °C.
+                    </p>
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.28_0.11_145)] transition-colors group/link"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}
+                    >
+                      Читать статью
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover/link:translate-x-1 transition-transform">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          {/* Critical stats */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {/* Article cards */}
             {[
               {
-                title: "Фрагментация ареала",
-                text: "Степные и полупустынные территории Забайкальского края — основной ареал обитания манула в России — характеризуются высокой антропогенной нагрузкой. Фрагментация местообитаний приводит к изоляции локальных популяций и снижает их способность к восстановлению.",
+                icon: "",
+                tag: "Экология",
+                title: "Ареал и миграции манула",
+                desc: "География распространения вида от Ирана до Монголии. Почему манул не мигрирует и как фрагментация ландшафтов влияет на генетическое разнообразие популяций.",
+                readTime: "8 мин",
+                delay: 80,
               },
               {
-                title: "Критическая уязвимость молодняка",
-                text: "До 68% молодых животных не доживают до расселения. Это означает, что популяция не успевает восполнять потери от смертности взрослых особей, которая достигает 50%. Вид находится на грани устойчивого воспроизводства.",
+                icon: "",
+                tag: "Питание",
+                title: "Рацион и пищевое поведение",
+                desc: "Манул специализируется на пищухах и грызунах. Как охотничья стратегия влияет на плотность популяции и какие последствия имеет сокращение кормовой базы.",
+                readTime: "6 мин",
+                delay: 160,
               },
               {
-                title: "Недостаточная охрана",
-                text: "Под охраной находится лишь около 13% ареала вида. Это критически мало для обеспечения долгосрочного выживания популяции. Проекты по сохранению манула уже получают президентскую поддержку, но этого недостаточно.",
+                icon: "",
+                tag: "Размножение",
+                title: "Поведение и размножение",
+                desc: "Сезон размножения, структура семейных групп, выживаемость котят. Почему 68% молодых котят не доживают до первого года и что на это влияет.",
+                readTime: "7 мин",
+                delay: 240,
               },
-            ].map((item, i) => (
-              <div key={i} className="bg-[oklch(0.22_0.04_65)] border border-[oklch(0.30_0.04_65)] rounded-2xl p-6">
-                <h3 className="text-[oklch(0.72_0.12_65)] font-bold text-sm uppercase tracking-wide mb-3"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  {item.title}
-                </h3>
-                <p className="text-[oklch(0.70_0.02_75)] text-sm leading-relaxed"
-                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  {item.text}
-                </p>
-              </div>
+              {
+                icon: "",
+                tag: "Генетика",
+                title: "Генетическое разнообразие",
+                desc: "Изоляция популяций из-за фрагментации ареала ведёт к снижению генетического разнообразия. Как генетический мониторинг помогает планировать охранные меры.",
+                readTime: "9 мин",
+                delay: 320,
+              },
+              {
+                icon: "",
+                tag: "Мониторинг",
+                title: "Методы учёта популяции",
+                desc: "Фотоловушки, GPS-трекинг, анализ нор — современные технологии учёта манула. Как данные мониторинга используются для создания природоохранных стратегий.",
+                readTime: "5 мин",
+                delay: 400,
+              },
+              {
+                icon: "",
+                tag: "Охрана",
+                title: "Красная книга и охранный статус",
+                desc: "Статус вида в Красной книге РФ и IUCN. Какие меры охраны уже приняты и что нужно сделать для обеспечения долгосрочного выживания манула в дикой природе.",
+                readTime: "10 мин",
+                delay: 480,
+              },
+            ].map((article, i) => (
+              <ArticleCard
+                key={i}
+                icon={article.icon}
+                tag={article.tag}
+                title={article.title}
+                desc={article.desc}
+                readTime={article.readTime}
+                delay={article.delay}
+              />
             ))}
+          </div>
+
+          {/* CTA Link */}
+          <div className="text-center mt-10">
+            <a
+              href="/articles"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[oklch(0.38_0.11_145)] text-white font-semibold hover:bg-[oklch(0.32_0.11_145)] transition-all duration-200 hover:-translate-y-0.5"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Все статьи о мануле
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -908,152 +970,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          POPULAR SCIENCE
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section id="science" className="py-24 md:py-32 bg-[oklch(0.95_0.015_85)]">
-        <div className="container">
-          <div className="fade-up text-center mb-16">
-            <div className="text-xs font-semibold text-[oklch(0.38_0.11_145)] uppercase tracking-widest mb-4"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Научно-популярные материалы
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[oklch(0.20_0.03_65)] leading-tight mb-6"
-              style={{ fontFamily: "'Playfair Display', serif" }}>
-              Познавательные статьи<br />
-              <em>о мануле</em>
-            </h2>
-            <Divider />
-            <p className="mt-6 text-[oklch(0.45_0.03_65)] text-lg max-w-2xl mx-auto leading-relaxed"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Узнайте больше о биологии, поведении и экологии манула. 
-              Материалы подготовлены на основе научных исследований и 
-              актуальных данных о популяции.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Featured article */}
-            <div className="fade-up lg:col-span-2" style={{ transitionDelay: '0ms' }}>
-              <div className="bg-white border border-[oklch(0.88_0.015_75)] rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-200 group">
-                <div className="grid md:grid-cols-2">
-                  <div className="h-64 md:h-auto overflow-hidden">
-                    <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028299853/8L2kXdaSWJnYMai9Jh2ccC/manul-portrait-serious-jkfEhUGCRutPaLtqJ6kU7v.webp"
-                      alt="Манул в естественной среде"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <div className="inline-flex px-3 py-1 rounded-full bg-[oklch(0.93_0.04_145)] text-[oklch(0.38_0.11_145)] text-xs font-semibold mb-4 w-fit"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                      📖 Выбор редакции
-                    </div>
-                    <h3 className="text-2xl font-bold text-[oklch(0.20_0.03_65)] mb-4 leading-tight"
-                      style={{ fontFamily: "'Playfair Display', serif" }}>
-                      Биология и физиология: почему манул выглядит именно так
-                    </h3>
-                    <p className="text-[oklch(0.45_0.03_65)] leading-relaxed mb-6"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                      Густая шерсть, приземистое тело, плоская морда и круглые глаза — 
-                      каждое приспособление манула имеет эволюционное объяснение. 
-                      Разбираемся, как форма тела помогает кошке выживать в суровых 
-                      степях Забайкалья при температурах от −40 °C до +40 °C.
-                    </p>
-                    <a
-                      href="#"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[oklch(0.38_0.11_145)] hover:text-[oklch(0.28_0.11_145)] transition-colors group/link"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}
-                    >
-                      Читать статью
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover/link:translate-x-1 transition-transform">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Article cards */}
-            {[
-              {
-                icon: "🧬",
-                tag: "Экология",
-                title: "Ареал и миграции манула",
-                desc: "География распространения вида от Ирана до Монголии. Почему манул не мигрирует и как фрагментация ландшафтов влияет на генетическое разнообразие популяций.",
-                readTime: "8 мин",
-                delay: 80,
-              },
-              {
-                icon: "🍖",
-                tag: "Питание",
-                title: "Рацион и пищевое поведение",
-                desc: "Манул специализируется на пищухах и грызунах. Как охотничья стратегия влияет на плотность популяции и какие последствия имеет сокращение кормовой базы.",
-                readTime: "6 мин",
-                delay: 160,
-              },
-              {
-                icon: "👶",
-                tag: "Размножение",
-                title: "Поведение и размножение",
-                desc: "Сезон размножения, структура семейных групп, выживаемость котят. Почему 68% молодых котят не доживают до первого года и что на это влияет.",
-                readTime: "7 мин",
-                delay: 240,
-              },
-              {
-                icon: "🧬",
-                tag: "Генетика",
-                title: "Генетическое разнообразие",
-                desc: "Изоляция популяций из-за фрагментации ареала ведёт к снижению генетического разнообразия. Как генетический мониторинг помогает планировать охранные меры.",
-                readTime: "9 мин",
-                delay: 320,
-              },
-              {
-                icon: "📊",
-                tag: "Мониторинг",
-                title: "Методы учёта популяции",
-                desc: "Фотоловушки, GPS-трекинг, анализ нор — современные технологии учёта манула. Как данные мониторинга используются для создания природоохранных стратегий.",
-                readTime: "5 мин",
-                delay: 400,
-              },
-              {
-                icon: "🛡️",
-                tag: "Охрана",
-                title: "Красная книга и охранный статус",
-                desc: "Статус вида в Красной книге РФ и IUCN. Какие меры охраны уже приняты и что нужно сделать для обеспечения долгосрочного выживания манула в дикой природе.",
-                readTime: "10 мин",
-                delay: 480,
-              },
-            ].map((article, i) => (
-              <ArticleCard
-                key={i}
-                icon={article.icon}
-                tag={article.tag}
-                title={article.title}
-                desc={article.desc}
-                readTime={article.readTime}
-                delay={article.delay}
-              />
-            ))}
-          </div>
-
-          {/* CTA Link */}
-          <div className="text-center mt-10">
-            <a
-              href="/articles"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[oklch(0.38_0.11_145)] text-white font-semibold hover:bg-[oklch(0.32_0.11_145)] transition-all duration-200 hover:-translate-y-0.5"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              Все статьи о мануле
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>
@@ -1136,37 +1052,37 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {[
               {
-                icon: "🏭",
+                icon: "",
                 problem: "Хозяйственное освоение степей",
                 impact: "68% ареала разрушено",
                 desc: "Распашка земель, рост поголовья скота и промышленное освоение уничтожают естественную среду обитания манула.",
               },
               {
-                icon: "🛣️",
+                icon: "",
                 problem: "Фрагментация местообитаний",
                 impact: "Изоляция популяций",
                 desc: "Строительство дорог и объектов инфраструктуры разделяет популяции, снижая их генетическое разнообразие.",
               },
               {
-                icon: "📉",
+                icon: "",
                 problem: "Высокая смертность молодняка",
                 impact: "68% котят не выживают",
                 desc: "Большинство молодых особей погибает до расселения из-за хищников, болезней и недостатка кормовой базы.",
               },
               {
-                icon: "🎯",
+                icon: "",
                 problem: "Браконьерство",
                 impact: "Нелегальная охота",
                 desc: "Охота ради меха и костей для традиционной медицины продолжает угрожать популяции в отдельных регионах.",
               },
               {
-                icon: "🌡️",
+                icon: "",
                 problem: "Изменение климата",
                 impact: "Деградация экосистем",
                 desc: "Изменение климатических условий влияет на численность грызунов — основной кормовой базы манула.",
               },
               {
-                icon: "📢",
+                icon: "",
                 problem: "Низкая осведомлённость",
                 impact: "Отсутствие поддержки",
                 desc: "Общественность недостаточно знает о проблемах вида, что снижает поддержку природоохранных инициатив.",
@@ -1292,6 +1208,25 @@ export default function Home() {
                   Отправить решение
                 </button>
               </div>
+
+              {/* 152-ФЗ Согласие */}
+              <div className="max-w-2xl mx-auto">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    required
+                    className="w-5 h-5 mt-0.5 rounded border-[oklch(0.85_0.015_75)] text-[oklch(0.38_0.11_145)] focus:ring-[oklch(0.38_0.11_145)] focus:ring-2 cursor-pointer flex-shrink-0"
+                  />
+                  <span className="text-xs text-[oklch(0.50_0.03_65)] leading-relaxed"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    Я даю согласие на обработку моих персональных данных (имя, email, текст обращения) в соответствии с{' '}
+                    <a href="/personal-data-policy" className="text-[oklch(0.38_0.11_145)] underline hover:text-[oklch(0.28_0.11_145)]" target="_blank" rel="noopener noreferrer">
+                      Политикой обработки персональных данных
+                    </a>{' '}
+                    в целях обработки моего обращения и связи со мной.
+                  </span>
+                </label>
+              </div>
             </form>
           </div>
 
@@ -1307,6 +1242,86 @@ export default function Home() {
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          THREATS
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section id="threats" className="py-24 md:py-32 bg-[oklch(0.18_0.04_65)]">
+        <div className="container">
+          <div ref={threatsRef} className="fade-up text-center mb-16">
+            <div className="text-xs font-semibold text-[oklch(0.72_0.12_65)] uppercase tracking-widest mb-4"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Угрозы популяции
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}>
+              Почему манул<br />
+              <em className="text-[oklch(0.72_0.12_65)]">под угрозой</em>
+            </h2>
+            <p className="text-[oklch(0.70_0.02_75)] text-lg max-w-2xl mx-auto leading-relaxed"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              В России насчитывается от 4 500 до 9 500 особей — это 8–16% глобальной популяции. 
+              Любая дополнительная смертность заметно бьёт по численности вида.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ThreatCard
+              icon=""
+              title="Хозяйственное освоение"
+              desc="Распашка земель и рост поголовья скота разрушают естественную среду обитания манула."
+              delay={0}
+            />
+            <ThreatCard
+              icon=""
+              title="Развитие инфраструктуры"
+              desc="Строительство дорог и объектов фрагментирует местообитания, изолируя локальные популяции."
+              delay={80}
+            />
+            <ThreatCard
+              icon=""
+              title="Добыча ресурсов"
+              desc="Разработка полезных ископаемых нарушает степные экосистемы и уничтожает кормовую базу."
+              delay={160}
+            />
+            <ThreatCard
+              icon=""
+              title="Низкая осведомлённость"
+              desc="Общественность недостаточно знает о проблемах вида. Молодёжь не включена в природоохранную повестку."
+              delay={240}
+            />
+          </div>
+
+          {/* Critical stats */}
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Фрагментация ареала",
+                text: "Степные и полупустынные территории Забайкальского края — основной ареал обитания манула в России — характеризуются высокой антропогенной нагрузкой. Фрагментация местообитаний приводит к изоляции локальных популяций и снижает их способность к восстановлению.",
+              },
+              {
+                title: "Критическая уязвимость молодняка",
+                text: "До 68% молодых животных не доживают до расселения. Это означает, что популяция не успевает восполнять потери от смертности взрослых особей, которая достигает 50%. Вид находится на грани устойчивого воспроизводства.",
+              },
+              {
+                title: "Недостаточная охрана",
+                text: "Под охраной находится лишь около 13% ареала вида. Это критически мало для обеспечения долгосрочного выживания популяции. Проекты по сохранению манула уже получают президентскую поддержку, но этого недостаточно.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="bg-[oklch(0.22_0.04_65)] border border-[oklch(0.30_0.04_65)] rounded-2xl p-6">
+                <h3 className="text-[oklch(0.72_0.12_65)] font-bold text-sm uppercase tracking-wide mb-3"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  {item.title}
+                </h3>
+                <p className="text-[oklch(0.70_0.02_75)] text-sm leading-relaxed"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1674,7 +1689,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="/analytics"
+                href="/threats"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[oklch(0.38_0.11_145)] text-white font-semibold hover:bg-[oklch(0.32_0.11_145)] transition-all duration-200 hover:-translate-y-0.5"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
@@ -1722,7 +1737,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <HelpCard
-              icon="🤝"
+              icon=""
               title="Волонтёрство"
               desc="Участвуй в полевых экспедициях, мониторинге популяций и природоохранных акциях совместно с экологами и специалистами по охране дикой природы."
               cta="Узнать о волонтёрстве"
@@ -1730,7 +1745,7 @@ export default function Home() {
               delay={0}
             />
             <HelpCard
-              icon="💡"
+              icon=""
               title="Предложи идею"
               desc="Разработай и представь свой проект по сохранению манула. Лучшие студенческие идеи публикуются на нашем сайте и становятся частью реальных инициатив."
               cta="Поделиться идеей"
@@ -1738,7 +1753,7 @@ export default function Home() {
               delay={80}
             />
             <HelpCard
-              icon="💚"
+              icon=""
               title="Пожертвование"
               desc="Поддержи проверенные зоозащитные организации, которые ведут реальную работу по сохранению манула и его среды обитания в Забайкалье."
               cta="Поддержать организации"
@@ -1746,7 +1761,7 @@ export default function Home() {
               delay={160}
             />
             <HelpCard
-              icon="📣"
+              icon=""
               title="Распространи информацию"
               desc="Расскажи друзьям и однокурсникам о мануле и проблемах его сохранения. Повышение осведомлённости — один из ключевых инструментов защиты вида."
               cta="Поделиться проектом"
@@ -1754,7 +1769,7 @@ export default function Home() {
               delay={240}
             />
             <HelpCard
-              icon="🎓"
+              icon=""
               title="Участвуй в мероприятиях"
               desc="Посещай лекции с экологами, дискуссионные сессии и интерактивные мероприятия проекта. Активные участники получают брендированную продукцию проекта."
               cta="Смотреть мероприятия"
@@ -1762,7 +1777,7 @@ export default function Home() {
               delay={320}
             />
             <HelpCard
-              icon="🔬"
+              icon=""
               title="Научная работа"
               desc="Пиши научные статьи, курсовые и дипломные работы по теме сохранения манула. Финансовые и экономические компетенции нужны природоохранным организациям."
               cta="Темы для исследований"
@@ -1811,39 +1826,39 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <OrgCard
-              name="Дальневосточный леопард"
-              desc="Фонд, занимающийся сохранением редких видов диких кошек России, включая манула. Поддерживает полевые исследования и охрану ареалов."
-              url="https://www.amur-leopard.org"
+              name="Фонд «Компас»"
+              desc="Российский экологический фонд, который с 2023 года ведет программу по изучению и сохранению манула. Фонд финансирует учет численности, мониторинг и восстановление мест обитания."
+              url="https://eco-compass.ru"
               delay={0}
             />
             <OrgCard
-              name="WWF России"
-              desc="Всемирный фонд дикой природы реализует программы по сохранению степных экосистем и редких видов животных Забайкалья."
-              url="https://wwf.ru"
+              name="Русское географическое общество (РГО)"
+              desc="С 2013 года поддерживает проекты по сохранению манула и сотрудничает с заповедниками, где идут мониторинг и охранные мероприятия для вида."
+              url="https://rgo.ru"
               delay={80}
             />
             <OrgCard
-              name="Манул.ру"
-              desc="Специализированный ресурс о мануле: научные материалы, новости исследований, информация о состоянии популяции и охранных программах."
-              url="https://manul.ru"
+              name="Благотворительный фонд «Красивые дети в красивом мире»"
+              desc="Поддержал проект Даурского заповедника «Манулы – знать и сопереживать, чтобы сохранить», помогая с фотоловушками и просветительской работой вокруг охраны манулов."
+              url="https://childrensworld.org"
               delay={160}
             />
             <OrgCard
-              name="Забайкальский нацпарк"
-              desc="Национальный парк, расположенный в ключевом ареале обитания манула. Ведёт мониторинг популяции и охрану природных территорий."
-              url="https://zabaikalsky-park.ru"
+              name="Межрегиональная ассоциация «Ирбис»"
+              desc="Российская природоохранная ассоциация, которая начала сотрудничество с российским подразделением Mars для охраны, изучения и увеличения популяции манула в России."
+              url="https://altayirbis.ru"
               delay={240}
             />
             <OrgCard
-              name="Российское общество сохранения природы"
-              desc="Организация, объединяющая волонтёров и специалистов для реализации природоохранных проектов по всей России."
-              url="https://www.rosop.ru"
+              name="Даурский заповедник"
+              desc="Один из ключевых природных участков обитания манула. Реализует проекты по наблюдению за видом, в том числе совместно с благотворительными фондами и РГО."
+              url="https://daurzapoved.com"
               delay={320}
             />
             <OrgCard
-              name="Союз охраны птиц России"
-              desc="Партнёрская организация, работающая над сохранением степных экосистем, от которых зависит не только манул, но и многие другие виды."
-              url="https://rbcu.ru"
+              name="Сибирский экологический центр"
+              desc="Организация, которая ведет программу по изучению и сохранению манула и участвует в профильных научно-природоохранных обсуждениях."
+              url="https://eco-center.ru"
               delay={400}
             />
           </div>
@@ -1903,7 +1918,7 @@ export default function Home() {
             {/* Right: events */}
             <div className="space-y-4">
               <EventCard
-                date="09 сен"
+                date="сен"
                 title="Ознакомительная лекция о проекте"
                 desc="Презентация «Степного хранителя» для студентов Финансового университета. Знакомство с проектом, проблемами манула и возможностями участия."
                 delay={0}

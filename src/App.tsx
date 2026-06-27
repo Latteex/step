@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -30,6 +31,33 @@ function Router() {
   );
 }
 
+// Global anchor link handler — redirects to home page if target section doesn't exist
+function AnchorHandler() {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href?.startsWith('#')) return;
+
+      const hash = href.slice(1);
+      const el = document.getElementById(hash);
+      if (el) return; // element exists on current page — default behavior
+
+      // Element not found — redirect to home with hash
+      e.preventDefault();
+      window.location.href = `/#${hash}`;
+    };
+
+    document.addEventListener('click', handleClick, { capture: true });
+    return () => document.removeEventListener('click', handleClick, { capture: true });
+  }, []);
+
+  return null;
+}
+
 // NOTE: About Theme
 // Toaster component uses next-themes for theme support
 
@@ -38,6 +66,7 @@ function App() {
     <ErrorBoundary>
       <TooltipProvider>
         <Toaster />
+        <AnchorHandler />
         <Navbar />
         <Router />
       </TooltipProvider>

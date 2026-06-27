@@ -19,12 +19,16 @@ export default function Navbar() {
 
   const handleLink = (href: string) => {
     setMenuOpen(false);
-    // Если это якорь на странице — скроллим
     if (href.startsWith("#")) {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      const hash = href.slice(1);
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Target section doesn't exist on this page — redirect to home
+        window.location.href = `/#${hash}`;
+      }
     }
-    // Иначе переход будет по стандартной ссылке
   };
 
   // Фильтруем только навигационные ссылки (якоря + страницы)
